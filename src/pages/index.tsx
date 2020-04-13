@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import { ArticleStub } from '../components/ArticleStub';
 import { Layout } from '../components/Layout';
@@ -23,7 +23,6 @@ export default ({ data }: IProps) => {
             one or two paragraphs long eventually. So I'm going to write
             something about that length for space filling reasons.
           </p>
-           
           <p>
             Paragraph two is likely going to be a little shorter and maybe
             feature a link to my CV or something.
@@ -33,12 +32,14 @@ export default ({ data }: IProps) => {
       </Section>
       <Section title={'Recent Articles'}>
         {data.allMarkdownRemark.edges.map(({ node }: any) => (
-          <ArticleStub
-            key={node.id}
-            type={node.frontmatter.type}
-            title={node.frontmatter.title}
-            excerpt={node.excerpt}
-          />
+          <ArticleLink key={node.id} to={node.fields.slug}>
+            <ArticleStub
+              key={node.id}
+              type={node.frontmatter.type}
+              title={node.frontmatter.title}
+              excerpt={node.excerpt}
+            />
+          </ArticleLink>
         ))}
       </Section>
     </Layout>
@@ -57,6 +58,9 @@ export const query = graphql`
             type
           }
           excerpt
+          fields {
+            slug
+          }
         }
       }
     }
@@ -65,7 +69,7 @@ export const query = graphql`
 
 // Single Use Styles
 const AboutText = styled.div`
-  width: 37.5rem;
+  width: 30rem;
   font-family: 'Libre Baskerville', serif;
   margin: 0 0 3rem 0;
   p {
@@ -74,17 +78,32 @@ const AboutText = styled.div`
     font-size: 1.6rem;
     text-align: center;
     line-height: 2.4rem;
+    color: ${({ theme }) => theme.highlight};
     margin: 0;
     padding: 0;
   }
-  @media (min-width: 980px) {
+  @media (min-width: 375px) {
+    width: 35rem;
+  }
+  @media (min-width: 768px) {
     width: 72rem;
     margin: 0 0 4rem 0;
     p {
-      font-size: 1.8rem;
-      line-height: 2.6rem;
-      margin: 0;
-      padding: 0;
+      font-size: 1.7rem;
+      line-height: 2.5rem;
     }
   }
+  @media (min-width: 980px) {
+    p {
+      font-size: 1.8rem;
+      line-height: 2.6rem;
+    }
+  }
+`;
+
+const ArticleLink = styled(Link)`
+  text-decoration: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 `;

@@ -2,6 +2,8 @@
 title: "Creating a rich text editor with built in thesaurus using React, Typescript and SlateJS."
 date: "2020-03-02"
 type: "tutorial"
+titleImage: ../assets/img/thesaurus_editor.jpg
+tags: []
 ---
 
 Getting user input into a SPA can be a daunting task. Especially if you need to allow for rich text input or complex data entry that is dynamic and difficult to model with a form. In this tutorial I will show you how to build a rich text editor with a dropdown thesaurus so you can change your words on the fly as you type. To do this we'll be using React and SlateJS - a rich text library that takes the pain out of using `contentEditable` to provide a platform for rich text editing in the browser. We'll also be doing it all in Typescript ~~as it's just better~~ as it will help with code completion and general structuring of the application. On top of that, there isn't any typescript documentation for Slate as it stands, so this will also act as a primer if you want to use Slate with Typescript in future projects.
