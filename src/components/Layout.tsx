@@ -36,13 +36,12 @@ const GlobalStyles = createGlobalStyle`
   
   h1 {
     font-weight: 700;
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     margin: 0 0 1.2rem 0;
     @media (min-width: 768px) {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
     margin: 0 0 1.4rem 0;
     }
-    
     @media (min-width: 980px) {
       margin: 0 0 1.6rem 0;
       font-size: 2.6rem;
@@ -51,10 +50,10 @@ const GlobalStyles = createGlobalStyle`
   
   h2 {
     font-weight: 700;
-    font-size: 1.8rem;
+    font-size: 2.0rem;
     margin: 0 0 0.6rem 0;
     @media (min-width: 768px) {
-      font-size: 2.0rem;
+      font-size: 2.1rem;
       margin: 0 0 0.7rem 0;
     }
     @media (min-width: 980px) {
@@ -65,10 +64,10 @@ const GlobalStyles = createGlobalStyle`
   
   h3 {
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin: 0 0 0.6rem 0;
     @media (min-width: 768px) {
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       margin: 0 0 0.7rem 0;
     }
     @media (min-width: 980px) {
@@ -88,7 +87,7 @@ const GlobalStyles = createGlobalStyle`
   p, li {
     font-family: 'Libre Baskerville', serif;
     font-weight: 400;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     line-height: 1.4;
     color: ${({ theme }) => theme.mainBright};
     margin: 0 0 0.6rem 0;
@@ -98,7 +97,7 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-feature-settings: "kern";
     font-feature-settings: "kern";
     @media (min-width: 768px) {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       margin: 0 0 0.7rem 0;
       hyphens: auto;
     }
@@ -142,10 +141,10 @@ const GlobalStyles = createGlobalStyle`
   
   pre, code {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     line-height: 1.4;
     @media (min-width: 768px) {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
     }
     @media (min-width: 980px) {
       font-size: 1.8rem;
