@@ -2,7 +2,7 @@
 title: This is a Test Article
 date: 2020-04-07
 type: other
-titleImage: ../assets/img/thesaurus_editor.jpg
+titleImage: ../assets/img/covid_visualiser.jpg
 tags: []
 ---
 

@@ -60,6 +60,8 @@ const HeroImage = styled(Img)`
 const LogoContainer = styled.div`
   width: 65px;
   height: 65px;
+  fill: ${({ theme }) => theme.highlight};
+  stroke: ${({ theme }) => theme.highlight};
   @media (min-width: 980px) {
     width: 75px;
     height: 75px;

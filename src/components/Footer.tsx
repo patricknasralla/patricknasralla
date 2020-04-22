@@ -21,7 +21,7 @@ const FooterContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-top: solid 1px ${({ theme }) => theme.main};
+  border-top: solid 1px ${({ theme }) => theme.highlight};
   width: 32rem;
   p {
     font-family: 'Montserrat', sans-serif;

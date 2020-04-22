@@ -8,7 +8,23 @@ import { HeroLogo } from '../components/HeroLogo';
 import { SocialIcons } from '../components/SocialIcons';
 
 interface IProps {
-  data: any;
+  data: {
+    allMarkdownRemark: {
+      edges: {
+        node: {
+          id: string;
+          frontmatter: {
+            title: string;
+            type: string;
+          };
+          excerpt: string;
+          fields: {
+            slug: string;
+          };
+        };
+      }[];
+    };
+  };
 }
 
 export default ({ data }: IProps) => {
@@ -68,7 +84,7 @@ export const query = graphql`
 `;
 
 // Single Use Styles
-const AboutText = styled.div`
+export const AboutText = styled.div`
   width: 30rem;
   font-family: 'Libre Baskerville', serif;
   margin: 0 0 3rem 0;

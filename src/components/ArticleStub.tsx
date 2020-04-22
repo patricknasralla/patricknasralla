@@ -53,14 +53,14 @@ const Box = styled.div<ColorByType>`
     height: 2rem;
     background-color: ${({ type, theme }) =>
       type === 'essay'
-        ? theme.brightBlue
+        ? theme.brightPurple
         : type === 'tutorial'
         ? theme.brightYellow
         : type === 'project'
         ? theme.brightCyan
         : type === 'other'
         ? theme.brightGreen
-        : theme.brightPurple};
+        : theme.brightBlue};
   }
 `;
 
@@ -74,14 +74,14 @@ const TextContainer = styled.div<ColorByType>`
     border-left: 1px solid
       ${({ type, theme }) =>
         type === 'essay'
-          ? theme.brightBlue
+          ? theme.brightPurple
           : type === 'tutorial'
           ? theme.brightYellow
           : type === 'project'
           ? theme.brightCyan
           : type === 'other'
           ? theme.brightGreen
-          : theme.brightPurple};
+          : theme.brightBlue};
     padding: 0 0 0 2rem;
   }
 `;
@@ -91,14 +91,14 @@ const FrontMatter = styled.div<ColorByType>`
   border-top: 1px solid
     ${({ type, theme }) =>
       type === 'essay'
-        ? theme.brightBlue
+        ? theme.brightPurple
         : type === 'tutorial'
         ? theme.brightYellow
         : type === 'project'
         ? theme.brightCyan
         : type === 'other'
         ? theme.brightGreen
-        : theme.brightPurple};
+        : theme.brightBlue};
   padding-top: 1rem;
   @media (min-width: 375px) {
     width: 35rem;

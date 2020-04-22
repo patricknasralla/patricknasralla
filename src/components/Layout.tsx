@@ -2,6 +2,7 @@ import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import { Footer } from './Footer';
+import { NavigationBar } from './Navigation';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -131,11 +132,11 @@ const GlobalStyles = createGlobalStyle`
   
   a {
     color: ${({ theme }) => theme.mainBright};
-    :hover, :active {
-      color: ${({ theme }) => theme.highlight};
-    }
     :visited {
       color: ${({ theme }) => theme.mainBright};
+    }
+    :hover, :active {
+      color: ${({ theme }) => theme.highlight};
     }
   }
   
@@ -198,6 +199,7 @@ export const Layout: React.FC = ({ children }) => (
   <>
     <GlobalStyles theme={darkTheme} />
     <ThemeProvider theme={darkTheme}>
+      <NavigationBar />
       {children}
       <Footer />
     </ThemeProvider>

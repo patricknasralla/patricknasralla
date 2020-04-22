@@ -737,20 +737,31 @@ type SitePluginPackageJsonPeerDependencies {
 }
 
 type SitePluginPluginOptions {
+  backgroundColor: String
   background_color: String
+  disableBgImage: Boolean
+  disableBgImageOnAlpha: Boolean
   display: String
   fonts: [SitePluginPluginOptionsFonts]
   icon: String
+  ignoreFileExtensions: [String]
   inlineCodeMarker: String
+  linkImagesToOriginal: Boolean
+  loading: String
+  markdownCaptions: Boolean
   maxWidth: Int
   name: String
   path: String
   pathCheck: Boolean
+  pathPrefix: String
   plugins: [SitePluginPluginOptionsPlugins]
   short_name: String
+  showCaptions: Boolean
   siteUrl: String
   start_url: String
   theme_color: String
+  tracedSVG: Boolean
+  withWebp: Boolean
   wrapperStyle: String
 }
 
@@ -771,8 +782,19 @@ type SitePluginPluginOptionsPlugins {
 }
 
 type SitePluginPluginOptionsPluginsPluginOptions {
+  backgroundColor: String
+  disableBgImage: Boolean
+  disableBgImageOnAlpha: Boolean
+  ignoreFileExtensions: [String]
   inlineCodeMarker: String
+  linkImagesToOriginal: Boolean
+  loading: String
+  markdownCaptions: Boolean
   maxWidth: Int
+  pathPrefix: String
+  showCaptions: Boolean
+  tracedSVG: Boolean
+  withWebp: Boolean
   wrapperStyle: String
 }
 
@@ -1931,17 +1953,25 @@ enum SitePageFieldsEnum {
   pluginCreator___parent___parent___children
   pluginCreator___parent___parent___id
   pluginCreator___pluginFilepath
+  pluginCreator___pluginOptions___backgroundColor
   pluginCreator___pluginOptions___background_color
+  pluginCreator___pluginOptions___disableBgImage
+  pluginCreator___pluginOptions___disableBgImageOnAlpha
   pluginCreator___pluginOptions___display
   pluginCreator___pluginOptions___fonts
   pluginCreator___pluginOptions___fonts___family
   pluginCreator___pluginOptions___fonts___variants
   pluginCreator___pluginOptions___icon
+  pluginCreator___pluginOptions___ignoreFileExtensions
   pluginCreator___pluginOptions___inlineCodeMarker
+  pluginCreator___pluginOptions___linkImagesToOriginal
+  pluginCreator___pluginOptions___loading
+  pluginCreator___pluginOptions___markdownCaptions
   pluginCreator___pluginOptions___maxWidth
   pluginCreator___pluginOptions___name
   pluginCreator___pluginOptions___path
   pluginCreator___pluginOptions___pathCheck
+  pluginCreator___pluginOptions___pathPrefix
   pluginCreator___pluginOptions___plugins
   pluginCreator___pluginOptions___plugins___browserAPIs
   pluginCreator___pluginOptions___plugins___id
@@ -1951,9 +1981,12 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___plugins___ssrAPIs
   pluginCreator___pluginOptions___plugins___version
   pluginCreator___pluginOptions___short_name
+  pluginCreator___pluginOptions___showCaptions
   pluginCreator___pluginOptions___siteUrl
   pluginCreator___pluginOptions___start_url
   pluginCreator___pluginOptions___theme_color
+  pluginCreator___pluginOptions___tracedSVG
+  pluginCreator___pluginOptions___withWebp
   pluginCreator___pluginOptions___wrapperStyle
   pluginCreator___resolve
   pluginCreator___ssrAPIs
@@ -2066,32 +2099,54 @@ enum SitePluginFieldsEnum {
   parent___parent___parent___children
   parent___parent___parent___id
   pluginFilepath
+  pluginOptions___backgroundColor
   pluginOptions___background_color
+  pluginOptions___disableBgImage
+  pluginOptions___disableBgImageOnAlpha
   pluginOptions___display
   pluginOptions___fonts
   pluginOptions___fonts___family
   pluginOptions___fonts___variants
   pluginOptions___icon
+  pluginOptions___ignoreFileExtensions
   pluginOptions___inlineCodeMarker
+  pluginOptions___linkImagesToOriginal
+  pluginOptions___loading
+  pluginOptions___markdownCaptions
   pluginOptions___maxWidth
   pluginOptions___name
   pluginOptions___path
   pluginOptions___pathCheck
+  pluginOptions___pathPrefix
   pluginOptions___plugins
   pluginOptions___plugins___browserAPIs
   pluginOptions___plugins___id
   pluginOptions___plugins___name
   pluginOptions___plugins___pluginFilepath
+  pluginOptions___plugins___pluginOptions___backgroundColor
+  pluginOptions___plugins___pluginOptions___disableBgImage
+  pluginOptions___plugins___pluginOptions___disableBgImageOnAlpha
+  pluginOptions___plugins___pluginOptions___ignoreFileExtensions
   pluginOptions___plugins___pluginOptions___inlineCodeMarker
+  pluginOptions___plugins___pluginOptions___linkImagesToOriginal
+  pluginOptions___plugins___pluginOptions___loading
+  pluginOptions___plugins___pluginOptions___markdownCaptions
   pluginOptions___plugins___pluginOptions___maxWidth
+  pluginOptions___plugins___pluginOptions___pathPrefix
+  pluginOptions___plugins___pluginOptions___showCaptions
+  pluginOptions___plugins___pluginOptions___tracedSVG
+  pluginOptions___plugins___pluginOptions___withWebp
   pluginOptions___plugins___pluginOptions___wrapperStyle
   pluginOptions___plugins___resolve
   pluginOptions___plugins___ssrAPIs
   pluginOptions___plugins___version
   pluginOptions___short_name
+  pluginOptions___showCaptions
   pluginOptions___siteUrl
   pluginOptions___start_url
   pluginOptions___theme_color
+  pluginOptions___tracedSVG
+  pluginOptions___withWebp
   pluginOptions___wrapperStyle
   resolve
   ssrAPIs
@@ -2532,20 +2587,31 @@ input SitePluginPackageJsonPeerDependenciesFilterListInput {
 }
 
 input SitePluginPluginOptionsFilterInput {
+  backgroundColor: StringQueryOperatorInput
   background_color: StringQueryOperatorInput
+  disableBgImage: BooleanQueryOperatorInput
+  disableBgImageOnAlpha: BooleanQueryOperatorInput
   display: StringQueryOperatorInput
   fonts: SitePluginPluginOptionsFontsFilterListInput
   icon: StringQueryOperatorInput
+  ignoreFileExtensions: StringQueryOperatorInput
   inlineCodeMarker: StringQueryOperatorInput
+  linkImagesToOriginal: BooleanQueryOperatorInput
+  loading: StringQueryOperatorInput
+  markdownCaptions: BooleanQueryOperatorInput
   maxWidth: IntQueryOperatorInput
   name: StringQueryOperatorInput
   path: StringQueryOperatorInput
   pathCheck: BooleanQueryOperatorInput
+  pathPrefix: StringQueryOperatorInput
   plugins: SitePluginPluginOptionsPluginsFilterListInput
   short_name: StringQueryOperatorInput
+  showCaptions: BooleanQueryOperatorInput
   siteUrl: StringQueryOperatorInput
   start_url: StringQueryOperatorInput
   theme_color: StringQueryOperatorInput
+  tracedSVG: BooleanQueryOperatorInput
+  withWebp: BooleanQueryOperatorInput
   wrapperStyle: StringQueryOperatorInput
 }
 
@@ -2574,8 +2640,19 @@ input SitePluginPluginOptionsPluginsFilterListInput {
 }
 
 input SitePluginPluginOptionsPluginsPluginOptionsFilterInput {
+  backgroundColor: StringQueryOperatorInput
+  disableBgImage: BooleanQueryOperatorInput
+  disableBgImageOnAlpha: BooleanQueryOperatorInput
+  ignoreFileExtensions: StringQueryOperatorInput
   inlineCodeMarker: StringQueryOperatorInput
+  linkImagesToOriginal: BooleanQueryOperatorInput
+  loading: StringQueryOperatorInput
+  markdownCaptions: BooleanQueryOperatorInput
   maxWidth: IntQueryOperatorInput
+  pathPrefix: StringQueryOperatorInput
+  showCaptions: BooleanQueryOperatorInput
+  tracedSVG: BooleanQueryOperatorInput
+  withWebp: BooleanQueryOperatorInput
   wrapperStyle: StringQueryOperatorInput
 }
 

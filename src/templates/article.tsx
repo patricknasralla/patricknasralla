@@ -85,14 +85,14 @@ const Title = styled.h1<IColorByType>`
   border-right: 0.5rem solid
     ${({ type, theme }) =>
       type === 'essay'
-        ? theme.brightBlue
+        ? theme.brightPurple
         : type === 'tutorial'
         ? theme.brightYellow
         : type === 'project'
         ? theme.brightCyan
         : type === 'other'
         ? theme.brightGreen
-        : theme.brightPurple};
+        : theme.brightBlue};
   font-size: 3rem;
   max-width: 32rem;
   @media (min-width: 375px) {
@@ -115,14 +115,14 @@ const Date = styled.h3<IColorByType>`
   margin: 0;
   color: ${({ type, theme }) =>
     type === 'essay'
-      ? theme.brightBlue
+      ? theme.brightPurple
       : type === 'tutorial'
       ? theme.brightYellow
       : type === 'project'
       ? theme.brightCyan
       : type === 'other'
       ? theme.brightGreen
-      : theme.brightPurple};
+      : theme.brightBlue};
 `;
 
 const LeadImage = styled(Img)`
