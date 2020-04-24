@@ -33,13 +33,12 @@ const Wrapper = styled.div`
   margin-top: 0;
   margin-bottom: 4rem;
   width: 100%;
-  padding: 2rem;
 
   :hover {
     background: ${({ theme }) => theme.backgroundHighlight};
   }
 
-  @media (min-width: 980px) {
+  @media (min-width: 768px) {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
@@ -48,16 +47,20 @@ const Wrapper = styled.div`
 
 const Box = styled.div<ColorByType>`
   display: none;
-  @media (min-width: 980px) {
+  @media (min-width: 768px) {
     display: block;
     width: 2rem;
     height: 2rem;
     background-color: ${({ type, theme }) =>
       type === 'essay'
-        ? theme.brightBlue
+        ? theme.brightPurple
         : type === 'tutorial'
         ? theme.brightYellow
-        : theme.brightPurple};
+        : type === 'project'
+        ? theme.brightCyan
+        : type === 'other'
+        ? theme.brightGreen
+        : theme.brightBlue};
   }
 `;
 
@@ -66,33 +69,47 @@ const TextContainer = styled.div<ColorByType>`
   flex-direction: column;
   align-items: center;
 
-  @media (min-width: 980px) {
+  @media (min-width: 768px) {
     border-top: none;
     border-left: 1px solid
       ${({ type, theme }) =>
         type === 'essay'
-          ? theme.brightBlue
+          ? theme.brightPurple
           : type === 'tutorial'
           ? theme.brightYellow
-          : theme.brightPurple};
+          : type === 'project'
+          ? theme.brightCyan
+          : type === 'other'
+          ? theme.brightGreen
+          : theme.brightBlue};
     padding: 0 0 0 2rem;
   }
 `;
 
 const FrontMatter = styled.div<ColorByType>`
-  width: 37.5rem;
+  width: 30rem;
   border-top: 1px solid
     ${({ type, theme }) =>
       type === 'essay'
-        ? theme.brightBlue
+        ? theme.brightPurple
         : type === 'tutorial'
         ? theme.brightYellow
-        : theme.brightPurple};
+        : type === 'project'
+        ? theme.brightCyan
+        : type === 'other'
+        ? theme.brightGreen
+        : theme.brightBlue};
   padding-top: 1rem;
+  @media (min-width: 375px) {
+    width: 35rem;
+  }
+  @media (min-width: 768px) {
+    width: 60rem;
+    padding: 0;
+    border-top: none;
+  }
   @media (min-width: 980px) {
     width: 72rem;
-    border-top: none;
-    padding: 0;
   }
 `;
 
@@ -114,7 +131,7 @@ const Excerpt = styled.p`
   font-weight: 400;
   font-style: italic;
   letter-spacing: -0.01rem;
-  margin: 0.4rem 0 0.2rem;
+  margin: 0.4rem 0 0.2rem 0;
   font-size: 1.4rem;
   @media (min-width: 980px) {
     margin: 0.5rem 0 0.25rem;

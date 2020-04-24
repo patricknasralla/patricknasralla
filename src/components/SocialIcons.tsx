@@ -4,13 +4,13 @@ import { GitHub, LinkedIn, Twitter } from '../assets/svg';
 
 export const SocialIcons = () => (
   <IconContainer>
-    <Icon>
+    <Icon href={'https://twitter.com/GomiNoSensei'}>
       <Twitter />
     </Icon>
-    <Icon>
+    <Icon href={'https://www.linkedin.com/in/patricknasralla/'}>
       <LinkedIn />
     </Icon>
-    <Icon>
+    <Icon href={'https://github.com/patricknasralla'}>
       <GitHub />
     </Icon>
   </IconContainer>
@@ -19,20 +19,22 @@ export const SocialIcons = () => (
 const IconContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   margin: 0.8rem 0 0 0;
-  width: 375px;
-  @media (min-width: 960px) {
+  width: 30rem;
+  @media (min-width: 375px) {
+    width: 35rem;
+  }
+  @media (min-width: 768px) {
     margin: 1rem 0 0 0;
-    width: 980px;
+    width: 72rem;
   }
 `;
 
-const Icon = styled.div`
+const Icon = styled.a`
   width: 24px;
   height: 24px;
-  margin: 0 5rem;
-  @media (min-width: 960px) {
-    margin: 0 10rem;
+  :hover {
+    fill: #008eff;
   }
 `;

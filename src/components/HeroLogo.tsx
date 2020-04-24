@@ -7,7 +7,7 @@ import { Logo } from '../assets/svg';
 export const HeroLogo: React.FC = () => {
   const data = useStaticQuery(graphql`
     query MyQuery {
-      hero: file(relativePath: { eq: "img/background.jpg" }) {
+      hero: file(relativePath: { eq: "assets/img/background.jpg" }) {
         childImageSharp {
           fluid {
             aspectRatio
@@ -42,7 +42,8 @@ const Main = styled.div`
   position: absolute;
   z-index: 10;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,13 +52,16 @@ const Main = styled.div`
 
 const HeroImage = styled(Img)`
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   overflow: hidden;
 `;
 
 const LogoContainer = styled.div`
   width: 65px;
   height: 65px;
+  fill: ${({ theme }) => theme.highlight};
+  stroke: ${({ theme }) => theme.highlight};
   @media (min-width: 980px) {
     width: 75px;
     height: 75px;

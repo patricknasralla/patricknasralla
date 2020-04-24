@@ -1,0 +1,158 @@
+/**
+ * prism.js Tr33llion_Dark for JavaScript, CoffeeScript, CSS and HTML
+ * Based on Tomorrow Theme by Rose Pritchard
+ * @author Patrick Nasralla
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #DADDDF;
+  background: #262D33;
+  font-family: 'IBM Plex Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1rem;
+  margin: 0.8rem -1rem 1.6rem -1rem;
+  overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #262D33;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  border-radius: 0.2rem;
+  padding: 0.3rem;
+  white-space: normal;
+  background: #262D33;
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #81878B;
+}
+
+.token.punctuation {
+  color: #DADDDF;
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+  color: #F5006C;
+}
+
+.token.function-name {
+  color: #F3A900;
+}
+
+.token.boolean,
+.token.number,
+.token.function {
+  color: #FF6E00;
+}
+
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+  color: #008EFF;
+}
+
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+  color: #009B00;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+  color: #009C94;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: #BF2BFF;
+}
+
+.token.important,
+.token.bold {
+  font-weight: 600;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.inserted {
+  color: #009B00;
+}
+
+/**
+ * Remove the default PrismJS theme background-color, border-radius, margin,
+ * padding and overflow.
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .gatsby-highlight.
+ * 3. Adjust the position of the line numbers
+ */
+.gatsby-highlight pre[class*="language-"] {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  overflow: initial;
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
+}
+
+.gatsby-highlight-code-line {
+  background-color: #30343F;
+  display: block;
+  margin-left: -1rem;
+  padding-left: 0.5rem;
+  border-left: 0.5rem solid #009B00;
+}
+
+/**
+ * Add back the container background-color, border-radius, padding, margin
+ * and overflow that we removed from <pre>.
+ */
+.gatsby-highlight {
+  background: #262D33;
+  padding: 1rem;
+  margin: 1.6rem -1rem 1.6rem -1rem;
+  overflow: auto;
+}
+
