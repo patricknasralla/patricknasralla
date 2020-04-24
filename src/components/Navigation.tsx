@@ -9,6 +9,7 @@ export const NavigationBar: React.FC = () => {
 
   // setMobileView based on window size...
   useEffect(() => {
+    if (typeof window === 'undefined') return; // fix for SSR
     const handleResize = () => setMobileView(window.innerWidth < 768);
     window.addEventListener('resize', handleResize);
     return () => {
