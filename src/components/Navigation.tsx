@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { HamburgerMenu, Logo } from '../assets/svg';
 
 export const NavigationBar: React.FC = () => {
-  const [mobileView, setMobileView] = useState(window.innerWidth < 768);
+  const [mobileView, setMobileView] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
 
   // setMobileView based on window size...
