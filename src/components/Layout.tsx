@@ -131,12 +131,30 @@ const GlobalStyles = createGlobalStyle`
   }
   
   a {
+    // break long urls to stop the layout fucking up...
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    
     color: ${({ theme }) => theme.mainBright};
     :visited {
       color: ${({ theme }) => theme.mainBright};
     }
     :hover, :active {
       color: ${({ theme }) => theme.highlight};
+    }
+  }
+  
+  small {
+    margin: 0;
+    font-size: 0.9rem;
+    @media (min-width: 768px) {
+      font-size: 1rem;
+    }
+    @media (min-width: 980px) {
+      font-size: 1.1rem;
     }
   }
   
@@ -167,14 +185,20 @@ const GlobalStyles = createGlobalStyle`
   li + h1, li + h2, li + h3, 
   ol + h1, ol + h2, ol + h3, 
   ul + h1, ul + h2, ul + h3, 
-  pre + h1, pre + h2, pre + h3 {
-    margin-top: 3rem;
+  pre + h1, pre + h2, pre + h3,
+  div + h1, div + h2, div + h3{
+    margin-top: 4rem;
   }
   
   // img resets:
   img {
     background-color: transparent;
   }
+  
+  p > img {
+    max-width: 100%;
+  }
+  
 `;
 
 export const darkTheme = {

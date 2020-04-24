@@ -19,7 +19,7 @@ export const SocialIcons = () => (
 const IconContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   margin: 0.8rem 0 0 0;
   width: 30rem;
   @media (min-width: 375px) {
@@ -27,20 +27,13 @@ const IconContainer = styled.div`
   }
   @media (min-width: 768px) {
     margin: 1rem 0 0 0;
-    width: 96rem;
+    width: 72rem;
   }
 `;
 
 const Icon = styled.a`
   width: 24px;
   height: 24px;
-  margin: 0 3rem;
-  //@media (min-width: 375px) {
-  //  margin: 0 5rem;
-  //}
-  @media (min-width: 980px) {
-    margin: 0 10rem;
-  }
   :hover {
     fill: #008eff;
   }

@@ -404,4 +404,4 @@ As a doctor, I find that data is only as useful as its interpretation. How that 
 
 As a developer, I have learnt a lot from this project. I hope in the coming weeks to put together a few more in-depth tutorials explaining the processes used here in more detail. I'm also keen to get feedback and learn if there's anything that ~~could~~ should be improved so please drop me a message if you found this useful or found something incorrect!
 
-Finally, you can find the full source code for this project on Github here: <a href="https://github.com/patricknasralla/covid19_3D_visualisation" target="_blank">https://github.com/patricknasralla/covid19_3D_visualisation</a>
+You can find the full source code for this project on Github here: <a href="https://github.com/patricknasralla/covid19_3D_visualisation" target="_blank">https://github.com/patricknasralla/covid19_3D_visualisation</a>.
