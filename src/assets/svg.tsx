@@ -83,7 +83,7 @@ export const Twitter = () => (
 );
 
 export const HamburgerMenu = () => (
-  <StyledSVG width="40" height="40" viewBox="0 0 100 80">
+  <StyledSVG width="40" height="40" viewBox="0 0 100 65">
     <rect width="100" height="5" />
     <rect y="30" width="100" height="5" />
     <rect y="60" width="100" height="5" />

@@ -133,7 +133,6 @@ const FloatingMenu = styled.div`
 
 const MenuButton = styled.div`
   z-index: 100;
-  background-color: ${({ theme }) => theme.background}AA;
   height: 100%;
   display: flex;
   flex-direction: column;
