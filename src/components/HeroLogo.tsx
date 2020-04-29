@@ -28,7 +28,7 @@ export const HeroLogo: React.FC = () => {
           <Logo />
         </LogoContainer>
         <Title>PATRICK NASRALLA</Title>
-        <TagLine>Medical Doctor | Software Developer</TagLine>
+        <TagLine>Software Developer | Medical Doctor</TagLine>
       </Main>
       <HeroImage
         fluid={data.hero.childImageSharp.fluid}
@@ -57,7 +57,7 @@ const HeroImage = styled(Img)`
   overflow: hidden;
 `;
 
-const LogoContainer = styled.div`
+export const LogoContainer = styled.div`
   width: 65px;
   height: 65px;
   fill: ${({ theme }) => theme.highlight};
@@ -68,7 +68,7 @@ const LogoContainer = styled.div`
   }
 `;
 
-const Title = styled.h1`
+export const Title = styled.h1`
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   letter-spacing: -0.05rem;

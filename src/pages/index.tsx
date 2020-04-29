@@ -6,6 +6,7 @@ import { Layout } from '../components/Layout';
 import { Section } from '../components/Section';
 import { HeroLogo } from '../components/HeroLogo';
 import { SocialIcons } from '../components/SocialIcons';
+import SEO from '../components/seo';
 
 interface IProps {
   data: {
@@ -30,18 +31,25 @@ interface IProps {
 export default ({ data }: IProps) => {
   return (
     <Layout>
+      <SEO title={'Home'} description={'patricknasralla.com'} />
       <HeroLogo />
-      <Section title={'About'} highlight={true}>
+      <Section title={'About Me'} highlight={true}>
         <AboutText>
           <p>
-            This is some centred text about me and stuff. I like the Libre
-            Baskerville and Montserrat crossover... it's probably going to be
-            one or two paragraphs long eventually. So I'm going to write
-            something about that length for space filling reasons.
+            I am a software engineer and clinician. As the founder of Tr33llion
+            Ltd. I am dedicated to creating software that addresses the
+            disconnect users have with existing note and document making
+            systems.
           </p>
           <p>
-            Paragraph two is likely going to be a little shorter and maybe
-            feature a link to my CV or something.
+            I am passionate about user experience and believe that the way we
+            represent data plays an important role in our ability to perceive
+            and interact with it. A combination of these two things is what, in
+            my opinion, makes great software.
+          </p>
+          <p>
+            This site is for my personal writing, tutorials and opinions. My
+            hope is that people can benefit from the things I learn!
           </p>
         </AboutText>
         <SocialIcons />
@@ -97,6 +105,9 @@ export const AboutText = styled.div`
     color: ${({ theme }) => theme.highlight};
     margin: 0;
     padding: 0;
+  }
+  p + p {
+    margin-top: 3rem;
   }
   @media (min-width: 375px) {
     width: 35rem;

@@ -3,11 +3,13 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { Layout } from '../components/Layout';
+import SEO from '../components/seo';
 
 export default ({ data }: any) => {
   const post = data.markdownRemark;
   return (
     <Layout>
+      <SEO title={post.frontmatter.title} description={post.excerpt} />
       <LeadImage fluid={post.frontmatter.titleImage.childImageSharp.fluid} />
       <PageContainer>
         <TitleContainer>

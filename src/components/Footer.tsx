@@ -6,12 +6,14 @@ export const Footer = () => (
   <>
     <FooterContainer>
       <p>©2020 Patrick Nasralla.</p>
-      <p></p>
-      <p></p>
+      <p />
+      <p />
       <Link to={'/disclaimer'}>
-        <p>Disclaimer</p>
+        <p>Legal Stuff.</p>
       </Link>
-      <p>Made with Gatsby.</p>
+      <p>
+        Made with <a href="https://www.gatsbyjs.org/">Gatsby</a>.
+      </p>
     </FooterContainer>
   </>
 );

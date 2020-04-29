@@ -2,9 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { Layout } from '../components/Layout';
 import { Section, Title } from '../components/Section';
+import SEO from '../components/seo';
 
 export default () => (
   <Layout>
+    <SEO title={'Disclaimer'} />
     <PageStyles>
       <Section title={'Disclaimer'}>
         <TextContainer>

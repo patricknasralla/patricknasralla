@@ -1,12 +1,12 @@
 ---
-title: "Creating a rich text editor with built in thesaurus using React, Typescript and SlateJS."
+title: "Creating a rich text editor with built in thesaurus using React, Typescript and Slate.js."
 date: "2020-02-25"
 type: "tutorial"
 titleImage: ../assets/img/pen_and_ink.jpg
 tags: []
 ---
 
-What's the best way of getting user input into your application? This is a difficult question. Perhaps the best way to try to answer this is to first look at the type of input that you want to get. Often, this input is well-structured and relatively static. In these cases forms are ideal as they let you specifically state what you need from a user and then save it in a server-friendly format. Often, however, the input is much more dynamic. A simple case of this is with blog comments: `<textarea />` leaves a lot to be desired from a UX point of view. Setting a component to `contentEditable="true"` is another option. I could write a whole essay on why contentEditable is broken (I just might one day...) but, after extensive testing I can confirm that it's the best way to go for dynamic, rich user input. Dealing with `contentEditable` directly is. Horrible. Luckily for us though, there are frameworks out there that take much of the hassle out of creating rich text input experiences for users. The current best one of these (IMHO) is Slate.js:
+What's the best way of getting user input into your application? This isn't an easy question. Maybe we should try to answer this by looking at the type of input you want to get? Often, it is well-structured and relatively static. In these cases forms are ideal as they let you specifically state what you need from the user and then save it in a server-friendly format. Other times, however, this input is much more dynamic. A simple case of this are blog comments: where `<textarea />` leaves a lot to be desired from a UX point of view. You could always set the component to `contentEditable="true"` but I could write a whole essay on why contentEditable is broken (I just might one day...). After extensive testing though I can confirm that it's the best way to go for dynamic, rich user input. Dealing with `contentEditable` directly though is... horrible. Luckily, there are frameworks out there that take much of the hassle out of using contentEditable whilst keeping the things that make it good. The current best of these (IMHO) is Slate.js:
 
 > Slate is a completely customizable framework for building rich text editors.
 >
@@ -18,14 +18,20 @@ The pros of using Slate over, say, Draft.js or ProseMirror are many:
 - **There's no hardcoded schema:** at Tr33llion, we are using an n-ary tree structure for our documents. Slate accepts deeply nested structures without complaint and allows you to specify how they are rendered.
 - **It mirrors the DOM:** Slate.js saves nodes as a nested structure, which means they are familiar to deal with and style.
 
-Slate.js has a comprehensive walkthrough for getting up and running. However, once that's completed you're pretty much on your own. This tutorial aims to pick up from where the walkthrough leaves off. Here, we'll be building a simple editor that saves the current word to state and then runs a thesaurus request on that word. We'll take the first 10 returned words and display them in a drop down modal window that follows the cursor. We'll then allow the user to change the current word for one in the list either with the mouse or keyboard. Finally, the tutorial is in Typescript to take advantage of Slate.js' excellent type definitions. On top of that, there isn't any typescript documentation for Slate as it stands, so this will also act as a primer if you want to use Slate with Typescript in future projects.
+Slate.js has a comprehensive walkthrough for getting up and running. However, once you've completed that, you're pretty much on your own. This tutorial aims to pick up where the walkthrough leaves off. Here, we'll be:
 
-I like this project for a tutorial because it's pointless in itself but should give you the necessary skills to then go and build upon it to create something pretty cool!
+- Building a simple editor that saves the current word to state and then runs a thesaurus request on that word.
+- Take the first 10 words returned and display them in a drop down modal window that follows the cursor.
+- Allow the user to change the current word for one in the list either with the mouse or keyboard.
 
-Before we begin, this tutorial expects that you have a basic knowledge of React and ES6 syntax. Basic understanding of the Typescript syntax (we keep it pretty simple here though, as it's more for the developer experience). I would also expect that you've run through the Slate.js walkthrough as it gives a good overview of styling nodes and applying custom formatting — which we do not touch on here.
+We'll do it all in Typescript to take advantage of Slate.js' excellent type definitions. On top of that, there isn't any typescript documentation for Slate as it stands, so this can also act as a primer if you want to use Slate with TS in your future projects.
 
-### A quick note on SlateJS beta and breaking changes
-Slate is currently still in beta and has undergone a number of **breaking** changes over the past few months. This has stabilised somewhat since the start of 2020, but it is not possible to guarantee that this will remain the case forever until version 1.0.0. This tutorial uses Slate 0.57.1, I recommend that this is the version that you use when following along. Updates to the tutorial will be reflected here.
+I like this tutorial project because it should give you the necessary skills to build upon it to create something pretty cool!
+
+Before we begin, this tutorial expects that you have a basic knowledge of React, ES6 and Typescript syntax (we keep the TS pretty simple here though, as it's more for the developer experience). I would also expect that you've run through the Slate.js walkthrough as it gives a good overview of styling nodes and applying custom formatting — which we do not touch on here.
+
+### A quick note on Slate.js beta and breaking changes
+Slate is still in beta and has undergone a number of **breaking** changes over the past few months. This has stabilised somewhat since the start of 2020, but it is not possible to guarantee that this will remain the case forever until version 1.0.0. This tutorial uses Slate 0.57.1, I recommend that this is the version that you use when following along. Updates to the tutorial will be reflected here.
 
 ## 01: Initial set up
 
@@ -35,7 +41,7 @@ We'll be using the excellent Create-React-App for initialising this project. To 
 npx create-react-app slate-thesaurus-editor --template typescript
 ```
 
-First, delete the logo and `app.css` files, as well as our test files, we won't be writing tests in this tutorial. Also, update `app.tsx` to a basic `Hello World` view:
+First, delete the logo and `app.css` files, as well as our test files as we won't be writing tests in this tutorial. Also, update `app.tsx` to a display a basic `Hello World` page:
 
 ```tsx
 import React from "react";
@@ -57,7 +63,7 @@ Assuming everything is going fine so far. We next need to install Slate and the 
 npm i slate slate-react
 ```
 
-As the walkthrough goes over setting things up, I won't duplicate things here. Let's set up a basic editor component in your App Component like so:
+As the walkthrough goes over setting things up, I won't duplicate things here. Let's set up the basic editor components in App like so:
 
 ```tsx
 import React, { useMemo, useState } from "react";
@@ -87,7 +93,7 @@ const App: React.FC = () => {
 export default App;
 ```
 
-Note that the Editor itself is made of two components: `Slate` and `Editable`. So far, we haven't done anything differently to the walkthrough. That's about to change though. First, we should add some basic styles to the editor.
+Note that the Editor itself is made of two components: `Slate` and `Editable`. So far, we haven't done anything differently to the walkthrough. That's about to change though. First though, we should add some basic styles to the editor.
 
 ## 03: Basic app styles
 
@@ -110,7 +116,7 @@ body {
 }
 ```
 
-As mentioned in the comment, setting the global font-size to 62.5% makes `1rem === 10px` and so allows us to do all of our sizing with relative units where appropriate without reaching for a calculator each time. Since learning this trick, I've never gone back.
+As mentioned in the comment, setting the global font-size to 62.5% makes `1rem === 10px` and allows us to do all of our sizing with relative units where appropriate without the need to reach for a calculator each time. Since learning this trick, I've never gone back.
 
 Next, let's add some styles to the editor itself. We'll be using Styled Components for this so let's add it to our application:
 
@@ -118,7 +124,7 @@ Next, let's add some styles to the editor itself. We'll be using Styled Componen
 npm i styled-components
 ```
 
-A good practice for component organisation is to place the styles with the tsx code in a folder named after the component itself. That way you can reference the folder when importing. Rename the `App.tsx` file to `index.tsx` and place it in a folder called `App` in your `src` directory. Make a new file called `styles.tsx` in the `App` directory too. Your folder structure should look like this:
+I find a good practice for component organisation is to place the styles with the .tsx code in a folder named after the component itself. That way you can reference the folder when importing. Rename the `App.tsx` file to `index.tsx` and place it in a folder called `App` in your `src` directory. Make a new file called `styles.tsx` in the `App` directory too. Your folder structure should look like this:
 
 ```text
 /src
@@ -155,6 +161,7 @@ export const EditorStyles = styled.div`
 ```
 
 Next, import and use the styled components in your app component:
+
 ```tsx
 import React, { useMemo, useState } from "react";
 import { createEditor, Node } from "slate";

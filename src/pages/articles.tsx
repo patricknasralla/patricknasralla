@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { ArticleStub } from '../components/ArticleStub';
 import { Layout } from '../components/Layout';
 import { Section } from '../components/Section';
+import SEO from '../components/seo';
 
 interface IProps {
   data: {
@@ -29,6 +30,7 @@ interface IProps {
 export default ({ data }: IProps) => {
   return (
     <Layout>
+      <SEO title={'All Articles'} description={'All Articles'} />
       <Section title={'Articles'}>
         {data.allMarkdownRemark.edges.map(({ node }: any) => (
           <ArticleLink key={node.id} to={node.fields.slug}>
