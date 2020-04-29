@@ -8,7 +8,7 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: 'patricknasralla.com',
-    description: 'Personal website of Patrick Nasralla.',
+    description: 'Personal website of Dr. Patrick Nasralla.',
     siteUrl: 'https://patricknasralla.com',
     author: {
       name: 'Patrick Nasralla',
