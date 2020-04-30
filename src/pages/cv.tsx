@@ -103,6 +103,10 @@ export default () => (
             Public speaking and presentation experience. Delivered multiple
             conference presentations.
           </li>
+          <li>
+            Managed diverse teams with varying skill-sets to provide patient
+            care on wards and in the Emergency Department.
+          </li>
         </ul>
       </TextContainer>
       <WorkCircleSmall />

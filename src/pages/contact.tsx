@@ -77,7 +77,7 @@ const LinksContainer = styled.div``;
 
 const SingleLink = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 5rem;
