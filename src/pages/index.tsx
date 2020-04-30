@@ -36,16 +36,15 @@ export default ({ data }: IProps) => {
       <Section title={'About Me'} highlight={true}>
         <AboutText>
           <p>
-            I am a software engineer and clinician. As the founder of Tr33llion
-            Ltd. I am dedicated to creating software that addresses the
-            disconnect users have with existing note and document making
-            systems.
+            I am the founder of Tr33llion Ltd. As a software engineer and
+            clinician, I create software that addresses the disconnect users
+            have with existing medical note taking systems.
           </p>
           <p>
-            I am passionate about user experience and believe that the way we
-            represent data plays an important role in our ability to perceive
-            and interact with it. A combination of these two things is what, in
-            my opinion, makes great software.
+            User experience and data representation play an important role in
+            our ability to perceive and interact with data. I passionately
+            believe it's a combination of these two things that makes great
+            software.
           </p>
           <p>
             This site is for my personal writing, tutorials and opinions. My
