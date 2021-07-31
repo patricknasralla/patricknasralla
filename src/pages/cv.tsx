@@ -49,9 +49,33 @@ export default () => (
     </Section>
     <Section title={'work history'}>
       <WorkEntryContainer>
+        <WorkEntryText>Software Developer, KPV Lab.</WorkEntryText>
+        <WorkCircleLarge />
+        <WorkEntryDate>2020 - Present</WorkEntryDate>
+      </WorkEntryContainer>
+      <TextContainer>
+        <WorkDescription>
+          Edinburgh based data visualisation company.
+        </WorkDescription>
+        <ul>
+          <li>
+            Working in React and Three JS to build a next generation data visualisation tool.
+          </li>
+          <li>
+            Have helped architect and refine many aspects of the custom code base.
+          </li>
+          <li>
+            Worked to speed up render pipline with custom GLSL shader code to offload computation 
+            to the GPU.
+          </li>
+        </ul>
+      </TextContainer>
+      <WorkCircleSmall />
+      <WorkEntryLine />
+      <WorkEntryContainer>
         <WorkEntryText>Founder, Tr33llion Ltd.</WorkEntryText>
         <WorkCircleLarge />
-        <WorkEntryDate>2017 - present</WorkEntryDate>
+        <WorkEntryDate>2017 - 2020</WorkEntryDate>
       </WorkEntryContainer>
       <TextContainer>
         <WorkDescription>
