@@ -25,6 +25,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -72,22 +73,24 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        fonts: [
-          {
-            family: `Montserrat`,
-            variants: [`300`, `500`, `700`],
-          },
-          {
-            family: `Libre Baskerville`,
-            variants: [`400`, `400i`, `700`],
-          },
-          {
-            family: `IBM Plex Mono`,
-            variants: [`400`, `400i`, `600`, `600i`],
-          },
-        ],
+        fonts: {
+          google: [
+            {
+              family: `Montserrat`,
+              variants: [`300`, `500`, `700`],
+            },
+            {
+              family: `Libre Baskerville`,
+              variants: [`400`, `400i`, `700`],
+            },
+            {
+              family: `IBM Plex Mono`,
+              variants: [`400`, `400i`, `600`, `600i`],
+            },
+          ],
+        }
       },
     },
     {
@@ -100,12 +103,6 @@ module.exports = {
         theme_color: `#DADDDF`,
         display: `browser`,
         icon: `src/assets/img/site_icon-192.png`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
   ],
